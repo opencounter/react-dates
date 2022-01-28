@@ -1,6 +1,6 @@
 {
-  "name": "react-dates",
-  "version": "21.8.0",
+  "name": "@opencounter/react-dates",
+  "version": "21.8.0-p1",
   "description": "A responsive and accessible date range picker component built with React",
   "main": "index.js",
   "scripts": {
@@ -147,5 +147,10 @@
   },
   "engines": {
     "node": ">=0.10"
+  },
+  "directories": {
+    "example": "examples",
+    "lib": "lib",
+    "test": "test"
   }
 }
