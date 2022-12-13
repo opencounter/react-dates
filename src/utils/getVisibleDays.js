@@ -19,7 +19,7 @@ export default function getVisibleDays(
     const firstOfMonth = baseDate.clone().startOf('month').hour(12);
     const lastOfMonth = baseDate.clone().endOf('month').hour(12);
 
-    const currentDay = firstOfMonth.clone();
+    let currentDay = firstOfMonth.clone();
 
     // days belonging to the previous month
     if (enableOutsideDays) {
@@ -31,7 +31,7 @@ export default function getVisibleDays(
 
     while (currentDay < lastOfMonth) {
       visibleDays.push(currentDay.clone());
-      currentDay.add(1, 'day');
+      currentDay = currentDay.add(1, 'day');
     }
 
     if (enableOutsideDays) {
