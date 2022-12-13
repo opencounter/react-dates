@@ -27,7 +27,7 @@ export default function getCalendarMonthWeeks(
 
   const totalDays = lastDay.diff(firstDay, 'days') + 1;
 
-  const currentDay = firstDay.clone();
+  let currentDay = firstDay.clone();
   const weeksInMonth = [];
 
   for (let i = 0; i < totalDays; i += 1) {
@@ -42,7 +42,7 @@ export default function getCalendarMonthWeeks(
 
     weeksInMonth[weeksInMonth.length - 1].push(day);
 
-    currentDay.add(1, 'day');
+    currentDay = currentDay.add(1, 'day');
   }
 
   return weeksInMonth;
