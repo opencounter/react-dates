@@ -213,8 +213,7 @@ class CalendarMonthGrid extends React.PureComponent {
     if (!withoutTransitionMonths) {
       initialMonthSubtraction -= 1;
     }
-    newMonth.set('month', newMonthVal).subtract(initialMonthSubtraction, 'months');
-    onMonthChange(newMonth);
+    onMonthChange(newMonth.set('month', newMonthVal).subtract(initialMonthSubtraction, 'months'));
   }
 
   onYearSelect(currentMonth, newYearVal) {
@@ -226,8 +225,7 @@ class CalendarMonthGrid extends React.PureComponent {
     if (!withoutTransitionMonths) {
       initialMonthSubtraction -= 1;
     }
-    newMonth.set('year', newYearVal).subtract(initialMonthSubtraction, 'months');
-    onYearChange(newMonth);
+    onYearChange(newMonth.set('year', newYearVal).subtract(initialMonthSubtraction, 'months'));
   }
 
   setContainerRef(ref) {
