@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { forbidExtraProps, nonNegativeInteger } from 'airbnb-prop-types';
+import { nonNegativeInteger } from 'airbnb-prop-types';
 import { css, withStyles, withStylesPropTypes } from 'react-with-styles';
 import throttle from 'lodash/throttle';
 import isTouchDevice from 'is-touch-device';
@@ -23,7 +23,7 @@ const FANG_STROKE_TOP = `M0,${FANG_HEIGHT_PX} ${FANG_WIDTH_PX / 2},0 ${FANG_WIDT
 const FANG_PATH_BOTTOM = `M0,0 ${FANG_WIDTH_PX},0 ${FANG_WIDTH_PX / 2},${FANG_HEIGHT_PX}z`;
 const FANG_STROKE_BOTTOM = `M0,0 ${FANG_WIDTH_PX / 2},${FANG_HEIGHT_PX} ${FANG_WIDTH_PX},0`;
 
-const propTypes = forbidExtraProps({
+const propTypes = {
   ...withStylesPropTypes,
   id: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
@@ -52,7 +52,7 @@ const propTypes = forbidExtraProps({
 
   // accessibility
   isFocused: PropTypes.bool, // describes actual DOM focus
-});
+};
 
 const defaultProps = {
   placeholder: 'Select Date',

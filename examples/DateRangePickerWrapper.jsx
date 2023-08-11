@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import momentPropTypes from 'react-moment-proptypes';
 import moment from 'moment';
 import omit from 'lodash/omit';
 
@@ -22,8 +21,6 @@ const propTypes = {
   autoFocus: PropTypes.bool,
   autoFocusEndDate: PropTypes.bool,
   stateDateWrapper: PropTypes.func,
-  initialStartDate: momentPropTypes.momentObj,
-  initialEndDate: momentPropTypes.momentObj,
 
   ...omit(DateRangePickerShape, [
     'startDate',

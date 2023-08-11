@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { forbidExtraProps } from 'airbnb-prop-types';
 import { css, withStyles, withStylesPropTypes } from 'react-with-styles';
 
 import { DayPickerKeyboardShortcutsPhrases } from '../defaultPhrases';
@@ -13,7 +12,7 @@ export const TOP_LEFT = 'top-left';
 export const TOP_RIGHT = 'top-right';
 export const BOTTOM_RIGHT = 'bottom-right';
 
-const propTypes = forbidExtraProps({
+const propTypes = {
   ...withStylesPropTypes,
   block: PropTypes.bool,
   // TODO: rename button location to be direction-agnostic
@@ -24,7 +23,7 @@ const propTypes = forbidExtraProps({
   phrases: PropTypes.shape(getPhrasePropTypes(DayPickerKeyboardShortcutsPhrases)),
   renderKeyboardShortcutsButton: PropTypes.func,
   renderKeyboardShortcutsPanel: PropTypes.func,
-});
+};
 
 const defaultProps = {
   block: false,

@@ -1,15 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { forbidExtraProps } from 'airbnb-prop-types';
 import { css, withStyles, withStylesPropTypes } from 'react-with-styles';
 
-const propTypes = forbidExtraProps({
+const propTypes = {
   ...withStylesPropTypes,
   unicode: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
   action: PropTypes.string.isRequired,
   block: PropTypes.bool,
-});
+};
 
 const defaultProps = {
   block: false,

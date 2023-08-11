@@ -2,8 +2,7 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import momentPropTypes from 'react-moment-proptypes';
-import { forbidExtraProps, mutuallyExclusiveProps, nonNegativeInteger } from 'airbnb-prop-types';
+import { mutuallyExclusiveProps, nonNegativeInteger } from 'airbnb-prop-types';
 import { css, withStyles, withStylesPropTypes } from 'react-with-styles';
 import moment from 'moment';
 
@@ -28,9 +27,8 @@ import {
   DAY_SIZE,
 } from '../constants';
 
-const propTypes = forbidExtraProps({
+const propTypes = {
   ...withStylesPropTypes,
-  month: momentPropTypes.momentObj,
   horizontalMonthPadding: nonNegativeInteger,
   isVisible: PropTypes.bool,
   enableOutsideDays: PropTypes.bool,
@@ -50,14 +48,13 @@ const propTypes = forbidExtraProps({
   setMonthTitleHeight: PropTypes.func,
   verticalBorderSpacing: nonNegativeInteger,
 
-  focusedDate: momentPropTypes.momentObj, // indicates focusable day
   isFocused: PropTypes.bool, // indicates whether or not to move focus to focusable day
 
   // i18n
   monthFormat: PropTypes.string,
   phrases: PropTypes.shape(getPhrasePropTypes(CalendarDayPhrases)),
   dayAriaLabelFormat: PropTypes.string,
-});
+};
 
 const defaultProps = {
   month: moment(),

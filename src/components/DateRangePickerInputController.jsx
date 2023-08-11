@@ -2,8 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 
-import momentPropTypes from 'react-moment-proptypes';
-import { forbidExtraProps, nonNegativeInteger } from 'airbnb-prop-types';
+import { nonNegativeInteger } from 'airbnb-prop-types';
 import openDirectionShape from '../shapes/OpenDirectionShape';
 
 import { DateRangePickerInputPhrases } from '../defaultPhrases';
@@ -27,17 +26,15 @@ import {
   OPEN_DOWN,
 } from '../constants';
 
-const propTypes = forbidExtraProps({
+const propTypes = {
   children: PropTypes.node,
 
-  startDate: momentPropTypes.momentObj,
   startDateId: PropTypes.string,
   startDatePlaceholderText: PropTypes.string,
   isStartDateFocused: PropTypes.bool,
   startDateAriaLabel: PropTypes.string,
   startDateTitleText: PropTypes.string,
 
-  endDate: momentPropTypes.momentObj,
   endDateId: PropTypes.string,
   endDatePlaceholderText: PropTypes.string,
   isEndDateFocused: PropTypes.bool,
@@ -84,7 +81,7 @@ const propTypes = forbidExtraProps({
   phrases: PropTypes.shape(getPhrasePropTypes(DateRangePickerInputPhrases)),
 
   isRTL: PropTypes.bool,
-});
+};
 
 const defaultProps = {
   children: null,

@@ -2,8 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 
-import momentPropTypes from 'react-moment-proptypes';
-import { forbidExtraProps, nonNegativeInteger } from 'airbnb-prop-types';
+import { nonNegativeInteger } from 'airbnb-prop-types';
 import openDirectionShape from '../shapes/OpenDirectionShape';
 
 import { SingleDatePickerInputPhrases } from '../defaultPhrases';
@@ -24,10 +23,9 @@ import {
   OPEN_DOWN,
 } from '../constants';
 
-const propTypes = forbidExtraProps({
+const propTypes = {
   children: PropTypes.node,
 
-  date: momentPropTypes.momentObj,
   onDateChange: PropTypes.func.isRequired,
 
   focused: PropTypes.bool,
@@ -72,7 +70,7 @@ const propTypes = forbidExtraProps({
   phrases: PropTypes.shape(getPhrasePropTypes(SingleDatePickerInputPhrases)),
 
   isRTL: PropTypes.bool,
-});
+};
 
 const defaultProps = {
   children: null,

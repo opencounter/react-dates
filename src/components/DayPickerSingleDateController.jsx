@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import momentPropTypes from 'react-moment-proptypes';
-import { forbidExtraProps, mutuallyExclusiveProps, nonNegativeInteger } from 'airbnb-prop-types';
+import { mutuallyExclusiveProps, nonNegativeInteger } from 'airbnb-prop-types';
 import moment from 'moment';
 import values from 'object.values';
 import isTouchDevice from 'is-touch-device';
@@ -34,10 +33,7 @@ import {
 import DayPicker from './DayPicker';
 import getPooledMoment from '../utils/getPooledMoment';
 
-const propTypes = forbidExtraProps({
-  date: momentPropTypes.momentObj,
-  minDate: momentPropTypes.momentObj,
-  maxDate: momentPropTypes.momentObj,
+const propTypes = {
   onDateChange: PropTypes.func,
 
   focused: PropTypes.bool,
@@ -99,7 +95,7 @@ const propTypes = forbidExtraProps({
   dayAriaLabelFormat: PropTypes.string,
 
   isRTL: PropTypes.bool,
-});
+};
 
 const defaultProps = {
   date: undefined, // TODO: use null

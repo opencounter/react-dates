@@ -1,8 +1,6 @@
 /* eslint-disable react/no-unused-prop-types */
 import React from 'react';
 import PropTypes from 'prop-types';
-import momentPropTypes from 'react-moment-proptypes';
-import { forbidExtraProps } from 'airbnb-prop-types';
 import moment from 'moment';
 import omit from 'lodash/omit';
 
@@ -13,10 +11,9 @@ import ScrollableOrientationShape from '../src/shapes/ScrollableOrientationShape
 import { HORIZONTAL_ORIENTATION } from '../src/constants';
 import isInclusivelyAfterDay from '../src/utils/isInclusivelyAfterDay';
 
-const propTypes = forbidExtraProps({
+const propTypes = {
   // example props for the demo
   autoFocus: PropTypes.bool,
-  initialDate: momentPropTypes.momentObj,
   showInput: PropTypes.bool,
 
   keepOpenOnDateSelect: PropTypes.bool,
@@ -47,7 +44,7 @@ const propTypes = forbidExtraProps({
   monthFormat: PropTypes.string,
 
   isRTL: PropTypes.bool,
-});
+};
 
 const defaultProps = {
   // example props for the demo
@@ -59,7 +56,7 @@ const defaultProps = {
   renderCalendarDay: undefined,
   renderDayContents: null,
   isDayBlocked: () => false,
-  isOutsideRange: day => !isInclusivelyAfterDay(day, moment()),
+  isOutsideRange: (day) => !isInclusivelyAfterDay(day, moment()),
   isDayHighlighted: () => false,
   enableOutsideDays: false,
 

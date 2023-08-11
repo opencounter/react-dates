@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { forbidExtraProps, nonNegativeInteger } from 'airbnb-prop-types';
+import { nonNegativeInteger } from 'airbnb-prop-types';
 import { css, withStyles, withStylesPropTypes } from 'react-with-styles';
 
 import { DateRangePickerInputPhrases } from '../defaultPhrases';
@@ -25,7 +25,7 @@ import {
   OPEN_DOWN,
 } from '../constants';
 
-const propTypes = forbidExtraProps({
+const propTypes = {
   ...withStylesPropTypes,
 
   children: PropTypes.node,
@@ -80,7 +80,7 @@ const propTypes = forbidExtraProps({
   phrases: PropTypes.shape(getPhrasePropTypes(DateRangePickerInputPhrases)),
 
   isRTL: PropTypes.bool,
-});
+};
 
 const defaultProps = {
   children: null,

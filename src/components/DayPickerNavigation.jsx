@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { forbidExtraProps } from 'airbnb-prop-types';
 import { css, withStyles, withStylesPropTypes } from 'react-with-styles';
 
 import { DayPickerNavigationPhrases } from '../defaultPhrases';
@@ -21,7 +20,7 @@ import {
   VERTICAL_SCROLLABLE,
 } from '../constants';
 
-const propTypes = forbidExtraProps({
+const propTypes = {
   ...withStylesPropTypes,
   disablePrev: PropTypes.bool,
   disableNext: PropTypes.bool,
@@ -42,7 +41,7 @@ const propTypes = forbidExtraProps({
   renderNavNextButton: PropTypes.func,
   showNavPrevButton: PropTypes.bool,
   showNavNextButton: PropTypes.bool,
-});
+};
 
 const defaultProps = {
   disablePrev: false,

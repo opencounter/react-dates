@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { forbidExtraProps, mutuallyExclusiveProps, nonNegativeInteger } from 'airbnb-prop-types';
+import { mutuallyExclusiveProps, nonNegativeInteger } from 'airbnb-prop-types';
 import { css, withStyles, withStylesPropTypes } from 'react-with-styles';
 
 import moment from 'moment';
@@ -55,7 +55,7 @@ const YEAR_SELECTION_TRANSITION = 'year_selection';
 const PREV_NAV = 'prev_nav';
 const NEXT_NAV = 'next_nav';
 
-const propTypes = forbidExtraProps({
+const propTypes = {
   ...withStylesPropTypes,
 
   // calendar presentation props
@@ -125,7 +125,7 @@ const propTypes = forbidExtraProps({
   weekDayFormat: PropTypes.string,
   phrases: PropTypes.shape(getPhrasePropTypes(DayPickerPhrases)),
   dayAriaLabelFormat: PropTypes.string,
-});
+};
 
 export const defaultProps = {
   // calendar presentation props

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { forbidExtraProps, nonNegativeInteger } from 'airbnb-prop-types';
+import { nonNegativeInteger } from 'airbnb-prop-types';
 import { css, withStyles, withStylesPropTypes } from 'react-with-styles';
 
 import { SingleDatePickerInputPhrases } from '../defaultPhrases';
@@ -16,7 +16,7 @@ import CalendarIcon from './CalendarIcon';
 import openDirectionShape from '../shapes/OpenDirectionShape';
 import { ICON_BEFORE_POSITION, ICON_AFTER_POSITION, OPEN_DOWN } from '../constants';
 
-const propTypes = forbidExtraProps({
+const propTypes = {
   ...withStylesPropTypes,
   id: PropTypes.string.isRequired,
   children: PropTypes.node,
@@ -54,7 +54,7 @@ const propTypes = forbidExtraProps({
 
   // i18n
   phrases: PropTypes.shape(getPhrasePropTypes(SingleDatePickerInputPhrases)),
-});
+};
 
 const defaultProps = {
   children: null,

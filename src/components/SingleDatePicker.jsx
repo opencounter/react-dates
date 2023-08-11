@@ -2,7 +2,6 @@ import React from 'react';
 import moment from 'moment';
 import { css, withStyles, withStylesPropTypes } from 'react-with-styles';
 import { Portal } from 'react-portal';
-import { forbidExtraProps } from 'airbnb-prop-types';
 import { addEventListener } from 'consolidated-events';
 import isTouchDevice from 'is-touch-device';
 import OutsideClickHandler from 'react-outside-click-handler';
@@ -37,10 +36,10 @@ import {
   NAV_POSITION_TOP,
 } from '../constants';
 
-const propTypes = forbidExtraProps({
+const propTypes = {
   ...withStylesPropTypes,
   ...SingleDatePickerShape,
-});
+};
 
 const defaultProps = {
   // required props for a functional interactive SingleDatePicker

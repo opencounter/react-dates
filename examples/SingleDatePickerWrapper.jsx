@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import momentPropTypes from 'react-moment-proptypes';
 import moment from 'moment';
 import omit from 'lodash/omit';
 
@@ -14,7 +13,6 @@ import isInclusivelyAfterDay from '../src/utils/isInclusivelyAfterDay';
 const propTypes = {
   // example props for the demo
   autoFocus: PropTypes.bool,
-  initialDate: momentPropTypes.momentObj,
 
   ...omit(SingleDatePickerShape, [
     'date',

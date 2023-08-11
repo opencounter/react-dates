@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import momentPropTypes from 'react-moment-proptypes';
-import { forbidExtraProps, nonNegativeInteger, or } from 'airbnb-prop-types';
+import { nonNegativeInteger, or } from 'airbnb-prop-types';
 import { css, withStyles, withStylesPropTypes } from 'react-with-styles';
 import moment from 'moment';
 import raf from 'raf';
@@ -38,9 +37,8 @@ const DayStyleShape = PropTypes.shape({
   }),
 });
 
-const propTypes = forbidExtraProps({
+const propTypes = {
   ...withStylesPropTypes,
-  day: momentPropTypes.momentObj,
   daySize: nonNegativeInteger,
   isOutsideDay: PropTypes.bool,
   modifiers: PropTypes.instanceOf(Set),
@@ -74,7 +72,7 @@ const propTypes = forbidExtraProps({
 
   // internationalization
   phrases: PropTypes.shape(getPhrasePropTypes(CalendarDayPhrases)),
-});
+};
 
 export const defaultStyles = {
   border: `1px solid ${color.core.borderLight}`,
