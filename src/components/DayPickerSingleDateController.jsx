@@ -1,12 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { mutuallyExclusiveProps, nonNegativeInteger } from 'airbnb-prop-types';
 import moment from 'moment';
 import values from 'object.values';
 import isTouchDevice from 'is-touch-device';
 
 import { DayPickerPhrases } from '../defaultPhrases';
-import getPhrasePropTypes from '../utils/getPhrasePropTypes';
 
 import isSameDay from '../utils/isSameDay';
 import isAfterDay from '../utils/isAfterDay';
@@ -16,11 +13,6 @@ import getVisibleDays from '../utils/getVisibleDays';
 
 import toISODateString from '../utils/toISODateString';
 import { addModifier, deleteModifier } from '../utils/modifiers';
-
-import ScrollableOrientationShape from '../shapes/ScrollableOrientationShape';
-import DayOfWeekShape from '../shapes/DayOfWeekShape';
-import CalendarInfoPositionShape from '../shapes/CalendarInfoPositionShape';
-import NavPositionShape from '../shapes/NavPositionShape';
 
 import {
   HORIZONTAL_ORIENTATION,
@@ -32,70 +24,6 @@ import {
 
 import DayPicker from './DayPicker';
 import getPooledMoment from '../utils/getPooledMoment';
-
-const propTypes = {
-  onDateChange: PropTypes.func,
-
-  focused: PropTypes.bool,
-  onFocusChange: PropTypes.func,
-  onClose: PropTypes.func,
-
-  keepOpenOnDateSelect: PropTypes.bool,
-  isOutsideRange: PropTypes.func,
-  isDayBlocked: PropTypes.func,
-  isDayHighlighted: PropTypes.func,
-
-  // DayPicker props
-  renderMonthText: mutuallyExclusiveProps(PropTypes.func, 'renderMonthText', 'renderMonthElement'),
-  renderMonthElement: mutuallyExclusiveProps(PropTypes.func, 'renderMonthText', 'renderMonthElement'),
-  renderWeekHeaderElement: PropTypes.func,
-  enableOutsideDays: PropTypes.bool,
-  numberOfMonths: PropTypes.number,
-  orientation: ScrollableOrientationShape,
-  withPortal: PropTypes.bool,
-  initialVisibleMonth: PropTypes.func,
-  firstDayOfWeek: DayOfWeekShape,
-  hideKeyboardShortcutsPanel: PropTypes.bool,
-  daySize: nonNegativeInteger,
-  verticalHeight: nonNegativeInteger,
-  noBorder: PropTypes.bool,
-  verticalBorderSpacing: nonNegativeInteger,
-  transitionDuration: nonNegativeInteger,
-  horizontalMonthPadding: nonNegativeInteger,
-
-  dayPickerNavigationInlineStyles: PropTypes.object,
-  navPosition: NavPositionShape,
-  navPrev: PropTypes.node,
-  navNext: PropTypes.node,
-  renderNavPrevButton: PropTypes.func,
-  renderNavNextButton: PropTypes.func,
-  noNavButtons: PropTypes.bool,
-  noNavNextButton: PropTypes.bool,
-  noNavPrevButton: PropTypes.bool,
-
-  onPrevMonthClick: PropTypes.func,
-  onNextMonthClick: PropTypes.func,
-  onOutsideClick: PropTypes.func,
-  renderCalendarDay: PropTypes.func,
-  renderDayContents: PropTypes.func,
-  renderCalendarInfo: PropTypes.func,
-  calendarInfoPosition: CalendarInfoPositionShape,
-
-  // accessibility
-  onBlur: PropTypes.func,
-  isFocused: PropTypes.bool,
-  showKeyboardShortcuts: PropTypes.bool,
-  onTab: PropTypes.func,
-  onShiftTab: PropTypes.func,
-
-  // i18n
-  monthFormat: PropTypes.string,
-  weekDayFormat: PropTypes.string,
-  phrases: PropTypes.shape(getPhrasePropTypes(DayPickerPhrases)),
-  dayAriaLabelFormat: PropTypes.string,
-
-  isRTL: PropTypes.bool,
-};
 
 const defaultProps = {
   date: undefined, // TODO: use null
@@ -744,5 +672,4 @@ export default class DayPickerSingleDateController extends React.PureComponent {
   }
 }
 
-DayPickerSingleDateController.propTypes = propTypes;
 DayPickerSingleDateController.defaultProps = defaultProps;

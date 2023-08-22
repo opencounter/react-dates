@@ -1,14 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { css, withStyles, withStylesPropTypes } from 'react-with-styles';
-
-const propTypes = {
-  ...withStylesPropTypes,
-  unicode: PropTypes.string.isRequired,
-  label: PropTypes.string.isRequired,
-  action: PropTypes.string.isRequired,
-  block: PropTypes.bool,
-};
+import { css, withStyles } from 'react-with-styles';
 
 const defaultProps = {
   block: false,
@@ -50,7 +41,6 @@ function KeyboardShortcutRow({
   );
 }
 
-KeyboardShortcutRow.propTypes = propTypes;
 KeyboardShortcutRow.defaultProps = defaultProps;
 
 export default withStyles(({ reactDates: { color } }) => ({

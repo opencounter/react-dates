@@ -1,33 +1,12 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { nonNegativeInteger } from 'airbnb-prop-types';
-import { css, withStyles, withStylesPropTypes } from 'react-with-styles';
+import { css, withStyles } from 'react-with-styles';
 import moment from 'moment';
 import raf from 'raf';
 
 import { CalendarDayPhrases } from '../defaultPhrases';
-import getPhrasePropTypes from '../utils/getPhrasePropTypes';
 import getCalendarDaySettings from '../utils/getCalendarDaySettings';
-import ModifiersShape from '../shapes/ModifiersShape';
 
 import { DAY_SIZE } from '../constants';
-
-const propTypes = {
-  ...withStylesPropTypes,
-  daySize: nonNegativeInteger,
-  isOutsideDay: PropTypes.bool,
-  modifiers: ModifiersShape,
-  isFocused: PropTypes.bool,
-  tabIndex: PropTypes.oneOf([0, -1]),
-  onDayClick: PropTypes.func,
-  onDayMouseEnter: PropTypes.func,
-  onDayMouseLeave: PropTypes.func,
-  renderDayContents: PropTypes.func,
-  ariaLabelFormat: PropTypes.string,
-
-  // internationalization
-  phrases: PropTypes.shape(getPhrasePropTypes(CalendarDayPhrases)),
-};
 
 const defaultProps = {
   day: moment(),
@@ -167,7 +146,6 @@ class CalendarDay extends React.PureComponent {
   }
 }
 
-CalendarDay.propTypes = propTypes;
 CalendarDay.defaultProps = defaultProps;
 
 export { CalendarDay as PureCalendarDay };

@@ -1,50 +1,12 @@
 /* eslint-disable react/no-unused-prop-types */
 import React from 'react';
-import PropTypes from 'prop-types';
 import moment from 'moment';
 import omit from 'lodash/omit';
 
 import DayPickerSingleDateController from '../src/components/DayPickerSingleDateController';
 
-import ScrollableOrientationShape from '../src/shapes/ScrollableOrientationShape';
-
 import { HORIZONTAL_ORIENTATION } from '../src/constants';
 import isInclusivelyAfterDay from '../src/utils/isInclusivelyAfterDay';
-
-const propTypes = {
-  // example props for the demo
-  autoFocus: PropTypes.bool,
-  showInput: PropTypes.bool,
-
-  keepOpenOnDateSelect: PropTypes.bool,
-  isOutsideRange: PropTypes.func,
-  isDayBlocked: PropTypes.func,
-  isDayHighlighted: PropTypes.func,
-
-  // DayPicker props
-  enableOutsideDays: PropTypes.bool,
-  numberOfMonths: PropTypes.number,
-  orientation: ScrollableOrientationShape,
-  withPortal: PropTypes.bool,
-  initialVisibleMonth: PropTypes.func,
-  renderCalendarInfo: PropTypes.func,
-
-  navPrev: PropTypes.node,
-  navNext: PropTypes.node,
-  renderNavPrevButton: PropTypes.func,
-  renderNavNextButton: PropTypes.func,
-
-  onPrevMonthClick: PropTypes.func,
-  onNextMonthClick: PropTypes.func,
-  onOutsideClick: PropTypes.func,
-  renderCalendarDay: PropTypes.func,
-  renderDayContents: PropTypes.func,
-
-  // i18n
-  monthFormat: PropTypes.string,
-
-  isRTL: PropTypes.bool,
-};
 
 const defaultProps = {
   // example props for the demo
@@ -136,7 +98,6 @@ class DayPickerSingleDateControllerWrapper extends React.Component {
   }
 }
 
-DayPickerSingleDateControllerWrapper.propTypes = propTypes;
 DayPickerSingleDateControllerWrapper.defaultProps = defaultProps;
 
 export default DayPickerSingleDateControllerWrapper;

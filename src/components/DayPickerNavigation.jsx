@@ -1,17 +1,13 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { css, withStyles, withStylesPropTypes } from 'react-with-styles';
+import { css, withStyles } from 'react-with-styles';
 
 import { DayPickerNavigationPhrases } from '../defaultPhrases';
-import getPhrasePropTypes from '../utils/getPhrasePropTypes';
 import noflip from '../utils/noflip';
 
 import LeftArrow from './LeftArrow';
 import RightArrow from './RightArrow';
 import ChevronUp from './ChevronUp';
 import ChevronDown from './ChevronDown';
-import NavPositionShape from '../shapes/NavPositionShape';
-import ScrollableOrientationShape from '../shapes/ScrollableOrientationShape';
 
 import {
   HORIZONTAL_ORIENTATION,
@@ -19,29 +15,6 @@ import {
   NAV_POSITION_TOP,
   VERTICAL_SCROLLABLE,
 } from '../constants';
-
-const propTypes = {
-  ...withStylesPropTypes,
-  disablePrev: PropTypes.bool,
-  disableNext: PropTypes.bool,
-  inlineStyles: PropTypes.object,
-  isRTL: PropTypes.bool,
-  navPosition: NavPositionShape,
-  navPrev: PropTypes.node,
-  navNext: PropTypes.node,
-  orientation: ScrollableOrientationShape,
-
-  onPrevMonthClick: PropTypes.func,
-  onNextMonthClick: PropTypes.func,
-
-  // internationalization
-  phrases: PropTypes.shape(getPhrasePropTypes(DayPickerNavigationPhrases)),
-
-  renderNavPrevButton: PropTypes.func,
-  renderNavNextButton: PropTypes.func,
-  showNavPrevButton: PropTypes.bool,
-  showNavNextButton: PropTypes.bool,
-};
 
 const defaultProps = {
   disablePrev: false,
@@ -288,7 +261,6 @@ class DayPickerNavigation extends React.PureComponent {
   }
 }
 
-DayPickerNavigation.propTypes = propTypes;
 DayPickerNavigation.defaultProps = defaultProps;
 
 export default withStyles(({ reactDates: { color, zIndex } }) => ({

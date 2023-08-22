@@ -1,7 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { mutuallyExclusiveProps, nonNegativeInteger } from 'airbnb-prop-types';
-import { css, withStyles, withStylesPropTypes } from 'react-with-styles';
+import { css, withStyles } from 'react-with-styles';
 
 import moment from 'moment';
 import throttle from 'lodash/throttle';
@@ -9,7 +7,6 @@ import isTouchDevice from 'is-touch-device';
 import OutsideClickHandler from 'react-outside-click-handler';
 
 import { DayPickerPhrases } from '../defaultPhrases';
-import getPhrasePropTypes from '../utils/getPhrasePropTypes';
 import noflip from '../utils/noflip';
 
 import CalendarMonthGrid from './CalendarMonthGrid';
@@ -26,12 +23,6 @@ import calculateDimension from '../utils/calculateDimension';
 import getActiveElement from '../utils/getActiveElement';
 import isDayVisible from '../utils/isDayVisible';
 import isSameMonth from '../utils/isSameMonth';
-
-import ModifiersShape from '../shapes/ModifiersShape';
-import NavPositionShape from '../shapes/NavPositionShape';
-import ScrollableOrientationShape from '../shapes/ScrollableOrientationShape';
-import DayOfWeekShape from '../shapes/DayOfWeekShape';
-import CalendarInfoPositionShape from '../shapes/CalendarInfoPositionShape';
 
 import {
   HORIZONTAL_ORIENTATION,
@@ -54,78 +45,6 @@ const MONTH_SELECTION_TRANSITION = 'month_selection';
 const YEAR_SELECTION_TRANSITION = 'year_selection';
 const PREV_NAV = 'prev_nav';
 const NEXT_NAV = 'next_nav';
-
-const propTypes = {
-  ...withStylesPropTypes,
-
-  // calendar presentation props
-  enableOutsideDays: PropTypes.bool,
-  numberOfMonths: PropTypes.number,
-  orientation: ScrollableOrientationShape,
-  withPortal: PropTypes.bool,
-  onOutsideClick: PropTypes.func,
-  hidden: PropTypes.bool,
-  initialVisibleMonth: PropTypes.func,
-  firstDayOfWeek: DayOfWeekShape,
-  renderCalendarInfo: PropTypes.func,
-  calendarInfoPosition: CalendarInfoPositionShape,
-  hideKeyboardShortcutsPanel: PropTypes.bool,
-  daySize: nonNegativeInteger,
-  isRTL: PropTypes.bool,
-  verticalHeight: nonNegativeInteger,
-  noBorder: PropTypes.bool,
-  transitionDuration: nonNegativeInteger,
-  verticalBorderSpacing: nonNegativeInteger,
-  horizontalMonthPadding: nonNegativeInteger,
-  renderKeyboardShortcutsButton: PropTypes.func,
-  renderKeyboardShortcutsPanel: PropTypes.func,
-
-  // navigation props
-  dayPickerNavigationInlineStyles: PropTypes.object,
-  disablePrev: PropTypes.bool,
-  disableNext: PropTypes.bool,
-  navPosition: NavPositionShape,
-  navPrev: PropTypes.node,
-  navNext: PropTypes.node,
-  renderNavPrevButton: PropTypes.func,
-  renderNavNextButton: PropTypes.func,
-  noNavButtons: PropTypes.bool,
-  noNavNextButton: PropTypes.bool,
-  noNavPrevButton: PropTypes.bool,
-  onPrevMonthClick: PropTypes.func,
-  onNextMonthClick: PropTypes.func,
-  onMonthChange: PropTypes.func,
-  onYearChange: PropTypes.func,
-  onGetNextScrollableMonths: PropTypes.func, // VERTICAL_SCROLLABLE daypickers only
-  onGetPrevScrollableMonths: PropTypes.func, // VERTICAL_SCROLLABLE daypickers only
-
-  // month props
-  renderMonthText: mutuallyExclusiveProps(PropTypes.func, 'renderMonthText', 'renderMonthElement'),
-  renderMonthElement: mutuallyExclusiveProps(PropTypes.func, 'renderMonthText', 'renderMonthElement'),
-  renderWeekHeaderElement: PropTypes.func,
-
-  // day props
-  modifiers: PropTypes.objectOf(PropTypes.objectOf(ModifiersShape)),
-  renderCalendarDay: PropTypes.func,
-  renderDayContents: PropTypes.func,
-  onDayClick: PropTypes.func,
-  onDayMouseEnter: PropTypes.func,
-  onDayMouseLeave: PropTypes.func,
-
-  // accessibility props
-  isFocused: PropTypes.bool,
-  getFirstFocusableDay: PropTypes.func,
-  onBlur: PropTypes.func,
-  showKeyboardShortcuts: PropTypes.bool,
-  onTab: PropTypes.func,
-  onShiftTab: PropTypes.func,
-
-  // internationalization
-  monthFormat: PropTypes.string,
-  weekDayFormat: PropTypes.string,
-  phrases: PropTypes.shape(getPhrasePropTypes(DayPickerPhrases)),
-  dayAriaLabelFormat: PropTypes.string,
-};
 
 export const defaultProps = {
   // calendar presentation props
@@ -1255,7 +1174,6 @@ class DayPicker extends React.PureComponent {
   }
 }
 
-DayPicker.propTypes = propTypes;
 DayPicker.defaultProps = defaultProps;
 
 export { DayPicker as PureDayPicker };

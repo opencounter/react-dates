@@ -1,59 +1,12 @@
 /* eslint-disable react/no-unused-prop-types */
 import React from 'react';
-import PropTypes from 'prop-types';
 import moment from 'moment';
 import omit from 'lodash/omit';
 
 import DayPickerRangeController from '../src/components/DayPickerRangeController';
 
-import ScrollableOrientationShape from '../src/shapes/ScrollableOrientationShape';
-
 import { START_DATE, END_DATE, HORIZONTAL_ORIENTATION } from '../src/constants';
 import isInclusivelyAfterDay from '../src/utils/isInclusivelyAfterDay';
-
-const propTypes = {
-  // example props for the demo
-  autoFocusEndDate: PropTypes.bool,
-  startDateOffset: PropTypes.func,
-  endDateOffset: PropTypes.func,
-  showInputs: PropTypes.bool,
-
-  keepOpenOnDateSelect: PropTypes.bool,
-  minimumNights: PropTypes.number,
-  isOutsideRange: PropTypes.func,
-  isDayBlocked: PropTypes.func,
-  isDayHighlighted: PropTypes.func,
-  daysViolatingMinNightsCanBeClicked: PropTypes.bool,
-
-  // DayPicker props
-  enableOutsideDays: PropTypes.bool,
-  numberOfMonths: PropTypes.number,
-  orientation: ScrollableOrientationShape,
-  verticalHeight: PropTypes.number,
-  withPortal: PropTypes.bool,
-  initialVisibleMonth: PropTypes.func,
-  renderCalendarInfo: PropTypes.func,
-  renderMonthElement: PropTypes.func,
-  renderMonthText: PropTypes.func,
-
-  navPrev: PropTypes.node,
-  navNext: PropTypes.node,
-  renderNavPrevButton: PropTypes.func,
-  renderNavNextButton: PropTypes.func,
-
-  onPrevMonthClick: PropTypes.func,
-  onNextMonthClick: PropTypes.func,
-  onOutsideClick: PropTypes.func,
-  renderCalendarDay: PropTypes.func,
-  renderDayContents: PropTypes.func,
-  renderKeyboardShortcutsButton: PropTypes.func,
-  renderKeyboardShortcutsPanel: PropTypes.func,
-
-  // i18n
-  monthFormat: PropTypes.string,
-
-  isRTL: PropTypes.bool,
-};
 
 const defaultProps = {
   // example props for the demo
@@ -185,7 +138,6 @@ class DayPickerRangeControllerWrapper extends React.Component {
   }
 }
 
-DayPickerRangeControllerWrapper.propTypes = propTypes;
 DayPickerRangeControllerWrapper.defaultProps = defaultProps;
 
 export default DayPickerRangeControllerWrapper;

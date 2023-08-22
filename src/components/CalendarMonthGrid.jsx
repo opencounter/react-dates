@@ -1,12 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { mutuallyExclusiveProps, nonNegativeInteger } from 'airbnb-prop-types';
-import { css, withStyles, withStylesPropTypes } from 'react-with-styles';
+import { css, withStyles } from 'react-with-styles';
 import moment from 'moment';
 import { addEventListener } from 'consolidated-events';
 
 import { CalendarDayPhrases } from '../defaultPhrases';
-import getPhrasePropTypes from '../utils/getPhrasePropTypes';
 import noflip from '../utils/noflip';
 
 import CalendarMonth from './CalendarMonth';
@@ -18,50 +15,12 @@ import toISOMonthString from '../utils/toISOMonthString';
 import isPrevMonth from '../utils/isPrevMonth';
 import isNextMonth from '../utils/isNextMonth';
 
-import ModifiersShape from '../shapes/ModifiersShape';
-import ScrollableOrientationShape from '../shapes/ScrollableOrientationShape';
-import DayOfWeekShape from '../shapes/DayOfWeekShape';
-
 import {
   HORIZONTAL_ORIENTATION,
   VERTICAL_ORIENTATION,
   VERTICAL_SCROLLABLE,
   DAY_SIZE,
 } from '../constants';
-
-const propTypes = {
-  ...withStylesPropTypes,
-  enableOutsideDays: PropTypes.bool,
-  firstVisibleMonthIndex: PropTypes.number,
-  horizontalMonthPadding: nonNegativeInteger,
-  isAnimating: PropTypes.bool,
-  numberOfMonths: PropTypes.number,
-  modifiers: PropTypes.objectOf(PropTypes.objectOf(ModifiersShape)),
-  orientation: ScrollableOrientationShape,
-  onDayClick: PropTypes.func,
-  onDayMouseEnter: PropTypes.func,
-  onDayMouseLeave: PropTypes.func,
-  onMonthTransitionEnd: PropTypes.func,
-  onMonthChange: PropTypes.func,
-  onYearChange: PropTypes.func,
-  renderMonthText: mutuallyExclusiveProps(PropTypes.func, 'renderMonthText', 'renderMonthElement'),
-  renderCalendarDay: PropTypes.func,
-  renderDayContents: PropTypes.func,
-  translationValue: PropTypes.number,
-  renderMonthElement: mutuallyExclusiveProps(PropTypes.func, 'renderMonthText', 'renderMonthElement'),
-  daySize: nonNegativeInteger,
-  isFocused: PropTypes.bool, // indicates whether or not to move focus to focusable day
-  firstDayOfWeek: DayOfWeekShape,
-  setMonthTitleHeight: PropTypes.func,
-  isRTL: PropTypes.bool,
-  transitionDuration: nonNegativeInteger,
-  verticalBorderSpacing: nonNegativeInteger,
-
-  // i18n
-  monthFormat: PropTypes.string,
-  phrases: PropTypes.shape(getPhrasePropTypes(CalendarDayPhrases)),
-  dayAriaLabelFormat: PropTypes.string,
-};
 
 const defaultProps = {
   enableOutsideDays: false,
@@ -358,7 +317,6 @@ class CalendarMonthGrid extends React.PureComponent {
   }
 }
 
-CalendarMonthGrid.propTypes = propTypes;
 CalendarMonthGrid.defaultProps = defaultProps;
 
 export default withStyles(({

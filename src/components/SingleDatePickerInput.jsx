@@ -1,60 +1,15 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { nonNegativeInteger } from 'airbnb-prop-types';
-import { css, withStyles, withStylesPropTypes } from 'react-with-styles';
+import { css, withStyles } from 'react-with-styles';
 
 import { SingleDatePickerInputPhrases } from '../defaultPhrases';
-import getPhrasePropTypes from '../utils/getPhrasePropTypes';
 import noflip from '../utils/noflip';
 
 import DateInput from './DateInput';
-import IconPositionShape from '../shapes/IconPositionShape';
 
 import CloseButton from './CloseButton';
 import CalendarIcon from './CalendarIcon';
 
-import openDirectionShape from '../shapes/OpenDirectionShape';
 import { ICON_BEFORE_POSITION, ICON_AFTER_POSITION, OPEN_DOWN } from '../constants';
-
-const propTypes = {
-  ...withStylesPropTypes,
-  id: PropTypes.string.isRequired,
-  children: PropTypes.node,
-  placeholder: PropTypes.string,
-  ariaLabel: PropTypes.string,
-  titleText: PropTypes.string,
-  displayValue: PropTypes.string,
-  screenReaderMessage: PropTypes.string,
-  focused: PropTypes.bool,
-  isFocused: PropTypes.bool, // describes actual DOM focus
-  disabled: PropTypes.bool,
-  required: PropTypes.bool,
-  readOnly: PropTypes.bool,
-  openDirection: openDirectionShape,
-  showCaret: PropTypes.bool,
-  showClearDate: PropTypes.bool,
-  customCloseIcon: PropTypes.node,
-  showDefaultInputIcon: PropTypes.bool,
-  inputIconPosition: IconPositionShape,
-  customInputIcon: PropTypes.node,
-  isRTL: PropTypes.bool,
-  noBorder: PropTypes.bool,
-  block: PropTypes.bool,
-  small: PropTypes.bool,
-  regular: PropTypes.bool,
-  verticalSpacing: nonNegativeInteger,
-
-  onChange: PropTypes.func,
-  onClearDate: PropTypes.func,
-  onFocus: PropTypes.func,
-  onKeyDownShiftTab: PropTypes.func,
-  onKeyDownTab: PropTypes.func,
-  onKeyDownArrowDown: PropTypes.func,
-  onKeyDownQuestionMark: PropTypes.func,
-
-  // i18n
-  phrases: PropTypes.shape(getPhrasePropTypes(SingleDatePickerInputPhrases)),
-};
 
 const defaultProps = {
   children: null,
@@ -219,7 +174,6 @@ function SingleDatePickerInput({
   );
 }
 
-SingleDatePickerInput.propTypes = propTypes;
 SingleDatePickerInput.defaultProps = defaultProps;
 
 export default withStyles(({ reactDates: { border, color } }) => ({

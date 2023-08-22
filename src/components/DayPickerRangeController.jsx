@@ -1,12 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { mutuallyExclusiveProps, nonNegativeInteger } from 'airbnb-prop-types';
 import moment from 'moment';
 import values from 'object.values';
 import isTouchDevice from 'is-touch-device';
 
 import { DayPickerPhrases } from '../defaultPhrases';
-import getPhrasePropTypes from '../utils/getPhrasePropTypes';
 
 import isInclusivelyAfterDay from '../utils/isInclusivelyAfterDay';
 import isNextDay from '../utils/isNextDay';
@@ -23,13 +20,6 @@ import getSelectedDateOffset from '../utils/getSelectedDateOffset';
 import toISODateString from '../utils/toISODateString';
 import { addModifier, deleteModifier } from '../utils/modifiers';
 
-import DisabledShape from '../shapes/DisabledShape';
-import FocusedInputShape from '../shapes/FocusedInputShape';
-import ScrollableOrientationShape from '../shapes/ScrollableOrientationShape';
-import DayOfWeekShape from '../shapes/DayOfWeekShape';
-import CalendarInfoPositionShape from '../shapes/CalendarInfoPositionShape';
-import NavPositionShape from '../shapes/NavPositionShape';
-
 import {
   START_DATE,
   END_DATE,
@@ -42,78 +32,6 @@ import {
 
 import DayPicker from './DayPicker';
 import getPooledMoment from '../utils/getPooledMoment';
-
-const propTypes = {
-  onDatesChange: PropTypes.func,
-  startDateOffset: PropTypes.func,
-  endDateOffset: PropTypes.func,
-
-  focusedInput: FocusedInputShape,
-  onFocusChange: PropTypes.func,
-  onClose: PropTypes.func,
-
-  keepOpenOnDateSelect: PropTypes.bool,
-  minimumNights: PropTypes.number,
-  disabled: DisabledShape,
-  isOutsideRange: PropTypes.func,
-  isDayBlocked: PropTypes.func,
-  isDayHighlighted: PropTypes.func,
-  getMinNightsForHoverDate: PropTypes.func,
-  daysViolatingMinNightsCanBeClicked: PropTypes.bool,
-
-  // DayPicker props
-  renderMonthText: mutuallyExclusiveProps(PropTypes.func, 'renderMonthText', 'renderMonthElement'),
-  renderMonthElement: mutuallyExclusiveProps(PropTypes.func, 'renderMonthText', 'renderMonthElement'),
-  renderWeekHeaderElement: PropTypes.func,
-  enableOutsideDays: PropTypes.bool,
-  numberOfMonths: PropTypes.number,
-  orientation: ScrollableOrientationShape,
-  withPortal: PropTypes.bool,
-  initialVisibleMonth: PropTypes.func,
-  hideKeyboardShortcutsPanel: PropTypes.bool,
-  daySize: nonNegativeInteger,
-  noBorder: PropTypes.bool,
-  verticalBorderSpacing: nonNegativeInteger,
-  horizontalMonthPadding: nonNegativeInteger,
-
-  dayPickerNavigationInlineStyles: PropTypes.object,
-  navPosition: NavPositionShape,
-  navPrev: PropTypes.node,
-  navNext: PropTypes.node,
-  renderNavPrevButton: PropTypes.func,
-  renderNavNextButton: PropTypes.func,
-  noNavButtons: PropTypes.bool,
-  noNavNextButton: PropTypes.bool,
-  noNavPrevButton: PropTypes.bool,
-
-  onPrevMonthClick: PropTypes.func,
-  onNextMonthClick: PropTypes.func,
-  onOutsideClick: PropTypes.func,
-  renderCalendarDay: PropTypes.func,
-  renderDayContents: PropTypes.func,
-  renderCalendarInfo: PropTypes.func,
-  renderKeyboardShortcutsButton: PropTypes.func,
-  renderKeyboardShortcutsPanel: PropTypes.func,
-  calendarInfoPosition: CalendarInfoPositionShape,
-  firstDayOfWeek: DayOfWeekShape,
-  verticalHeight: nonNegativeInteger,
-  transitionDuration: nonNegativeInteger,
-
-  // accessibility
-  onBlur: PropTypes.func,
-  isFocused: PropTypes.bool,
-  showKeyboardShortcuts: PropTypes.bool,
-  onTab: PropTypes.func,
-  onShiftTab: PropTypes.func,
-
-  // i18n
-  monthFormat: PropTypes.string,
-  weekDayFormat: PropTypes.string,
-  phrases: PropTypes.shape(getPhrasePropTypes(DayPickerPhrases)),
-  dayAriaLabelFormat: PropTypes.string,
-
-  isRTL: PropTypes.bool,
-};
 
 const defaultProps = {
   startDate: undefined, // TODO: use null
@@ -1395,5 +1313,4 @@ export default class DayPickerRangeController extends React.PureComponent {
   }
 }
 
-DayPickerRangeController.propTypes = propTypes;
 DayPickerRangeController.defaultProps = defaultProps;

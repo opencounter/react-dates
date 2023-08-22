@@ -1,13 +1,10 @@
 /* eslint react/no-array-index-key: 0 */
 
 import React from 'react';
-import PropTypes from 'prop-types';
-import { mutuallyExclusiveProps, nonNegativeInteger } from 'airbnb-prop-types';
-import { css, withStyles, withStylesPropTypes } from 'react-with-styles';
+import { css, withStyles } from 'react-with-styles';
 import moment from 'moment';
 
 import { CalendarDayPhrases } from '../defaultPhrases';
-import getPhrasePropTypes from '../utils/getPhrasePropTypes';
 
 import CalendarWeek from './CalendarWeek';
 import CalendarDay from './CalendarDay';
@@ -17,44 +14,11 @@ import getCalendarMonthWeeks from '../utils/getCalendarMonthWeeks';
 import isSameDay from '../utils/isSameDay';
 import toISODateString from '../utils/toISODateString';
 
-import ModifiersShape from '../shapes/ModifiersShape';
-import ScrollableOrientationShape from '../shapes/ScrollableOrientationShape';
-import DayOfWeekShape from '../shapes/DayOfWeekShape';
-
 import {
   HORIZONTAL_ORIENTATION,
   VERTICAL_SCROLLABLE,
   DAY_SIZE,
 } from '../constants';
-
-const propTypes = {
-  ...withStylesPropTypes,
-  horizontalMonthPadding: nonNegativeInteger,
-  isVisible: PropTypes.bool,
-  enableOutsideDays: PropTypes.bool,
-  modifiers: PropTypes.objectOf(ModifiersShape),
-  orientation: ScrollableOrientationShape,
-  daySize: nonNegativeInteger,
-  onDayClick: PropTypes.func,
-  onDayMouseEnter: PropTypes.func,
-  onDayMouseLeave: PropTypes.func,
-  onMonthSelect: PropTypes.func,
-  onYearSelect: PropTypes.func,
-  renderMonthText: mutuallyExclusiveProps(PropTypes.func, 'renderMonthText', 'renderMonthElement'),
-  renderCalendarDay: PropTypes.func,
-  renderDayContents: PropTypes.func,
-  renderMonthElement: mutuallyExclusiveProps(PropTypes.func, 'renderMonthText', 'renderMonthElement'),
-  firstDayOfWeek: DayOfWeekShape,
-  setMonthTitleHeight: PropTypes.func,
-  verticalBorderSpacing: nonNegativeInteger,
-
-  isFocused: PropTypes.bool, // indicates whether or not to move focus to focusable day
-
-  // i18n
-  monthFormat: PropTypes.string,
-  phrases: PropTypes.shape(getPhrasePropTypes(CalendarDayPhrases)),
-  dayAriaLabelFormat: PropTypes.string,
-};
 
 const defaultProps = {
   month: moment(),
@@ -241,7 +205,6 @@ class CalendarMonth extends React.PureComponent {
   }
 }
 
-CalendarMonth.propTypes = propTypes;
 CalendarMonth.defaultProps = defaultProps;
 
 export default withStyles(({ reactDates: { color, font, spacing } }) => ({

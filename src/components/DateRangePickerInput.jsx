@@ -1,16 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { nonNegativeInteger } from 'airbnb-prop-types';
-import { css, withStyles, withStylesPropTypes } from 'react-with-styles';
+import { css, withStyles } from 'react-with-styles';
 
 import { DateRangePickerInputPhrases } from '../defaultPhrases';
-import getPhrasePropTypes from '../utils/getPhrasePropTypes';
 import noflip from '../utils/noflip';
-import openDirectionShape from '../shapes/OpenDirectionShape';
 
 import DateInput from './DateInput';
-import IconPositionShape from '../shapes/IconPositionShape';
-import DisabledShape from '../shapes/DisabledShape';
 
 import RightArrow from './RightArrow';
 import LeftArrow from './LeftArrow';
@@ -24,63 +18,6 @@ import {
   ICON_AFTER_POSITION,
   OPEN_DOWN,
 } from '../constants';
-
-const propTypes = {
-  ...withStylesPropTypes,
-
-  children: PropTypes.node,
-
-  startDateId: PropTypes.string,
-  startDatePlaceholderText: PropTypes.string,
-  startDateAriaLabel: PropTypes.string,
-  startDateTitleText: PropTypes.string,
-  screenReaderMessage: PropTypes.string,
-
-  endDateId: PropTypes.string,
-  endDatePlaceholderText: PropTypes.string,
-  endDateAriaLabel: PropTypes.string,
-  endDateTitleText: PropTypes.string,
-
-  onStartDateFocus: PropTypes.func,
-  onEndDateFocus: PropTypes.func,
-  onStartDateChange: PropTypes.func,
-  onEndDateChange: PropTypes.func,
-  onStartDateShiftTab: PropTypes.func,
-  onEndDateTab: PropTypes.func,
-  onClearDates: PropTypes.func,
-  onKeyDownArrowDown: PropTypes.func,
-  onKeyDownQuestionMark: PropTypes.func,
-
-  startDate: PropTypes.string,
-  endDate: PropTypes.string,
-
-  isStartDateFocused: PropTypes.bool,
-  isEndDateFocused: PropTypes.bool,
-  showClearDates: PropTypes.bool,
-  disabled: DisabledShape,
-  required: PropTypes.bool,
-  readOnly: PropTypes.bool,
-  openDirection: openDirectionShape,
-  showCaret: PropTypes.bool,
-  showDefaultInputIcon: PropTypes.bool,
-  inputIconPosition: IconPositionShape,
-  customInputIcon: PropTypes.node,
-  customArrowIcon: PropTypes.node,
-  customCloseIcon: PropTypes.node,
-  noBorder: PropTypes.bool,
-  block: PropTypes.bool,
-  small: PropTypes.bool,
-  regular: PropTypes.bool,
-  verticalSpacing: nonNegativeInteger,
-
-  // accessibility
-  isFocused: PropTypes.bool, // describes actual DOM focus
-
-  // i18n
-  phrases: PropTypes.shape(getPhrasePropTypes(DateRangePickerInputPhrases)),
-
-  isRTL: PropTypes.bool,
-};
 
 const defaultProps = {
   children: null,
@@ -311,7 +248,6 @@ function DateRangePickerInput({
   );
 }
 
-DateRangePickerInput.propTypes = propTypes;
 DateRangePickerInput.defaultProps = defaultProps;
 
 export default withStyles(({ reactDates: { border, color, sizing } }) => ({

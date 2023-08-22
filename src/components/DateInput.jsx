@@ -1,13 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { nonNegativeInteger } from 'airbnb-prop-types';
 import { css, withStyles, withStylesPropTypes } from 'react-with-styles';
 import throttle from 'lodash/throttle';
 import isTouchDevice from 'is-touch-device';
 
 import noflip from '../utils/noflip';
 import getInputHeight from '../utils/getInputHeight';
-import openDirectionShape from '../shapes/OpenDirectionShape';
 
 import {
   OPEN_DOWN,
@@ -22,37 +19,6 @@ const FANG_PATH_TOP = `M0,${FANG_HEIGHT_PX} ${FANG_WIDTH_PX},${FANG_HEIGHT_PX} $
 const FANG_STROKE_TOP = `M0,${FANG_HEIGHT_PX} ${FANG_WIDTH_PX / 2},0 ${FANG_WIDTH_PX},${FANG_HEIGHT_PX}`;
 const FANG_PATH_BOTTOM = `M0,0 ${FANG_WIDTH_PX},0 ${FANG_WIDTH_PX / 2},${FANG_HEIGHT_PX}z`;
 const FANG_STROKE_BOTTOM = `M0,0 ${FANG_WIDTH_PX / 2},${FANG_HEIGHT_PX} ${FANG_WIDTH_PX},0`;
-
-const propTypes = {
-  ...withStylesPropTypes,
-  id: PropTypes.string.isRequired,
-  placeholder: PropTypes.string,
-  displayValue: PropTypes.string,
-  ariaLabel: PropTypes.string,
-  titleText: PropTypes.string,
-  screenReaderMessage: PropTypes.string,
-  focused: PropTypes.bool,
-  disabled: PropTypes.bool,
-  required: PropTypes.bool,
-  readOnly: PropTypes.bool,
-  openDirection: openDirectionShape,
-  showCaret: PropTypes.bool,
-  verticalSpacing: nonNegativeInteger,
-  small: PropTypes.bool,
-  block: PropTypes.bool,
-  regular: PropTypes.bool,
-
-  onChange: PropTypes.func,
-  onFocus: PropTypes.func,
-  onKeyDownShiftTab: PropTypes.func,
-  onKeyDownTab: PropTypes.func,
-
-  onKeyDownArrowDown: PropTypes.func,
-  onKeyDownQuestionMark: PropTypes.func,
-
-  // accessibility
-  isFocused: PropTypes.bool, // describes actual DOM focus
-};
 
 const defaultProps = {
   placeholder: 'Select Date',
@@ -276,7 +242,6 @@ class DateInput extends React.PureComponent {
   }
 }
 
-DateInput.propTypes = propTypes;
 DateInput.defaultProps = defaultProps;
 
 export default withStyles(({

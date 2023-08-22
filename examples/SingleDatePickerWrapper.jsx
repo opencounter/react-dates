@@ -1,26 +1,12 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import moment from 'moment';
 import omit from 'lodash/omit';
 
 import SingleDatePicker from '../src/components/SingleDatePicker';
 
 import { SingleDatePickerPhrases } from '../src/defaultPhrases';
-import SingleDatePickerShape from '../src/shapes/SingleDatePickerShape';
 import { HORIZONTAL_ORIENTATION, ANCHOR_LEFT } from '../src/constants';
 import isInclusivelyAfterDay from '../src/utils/isInclusivelyAfterDay';
-
-const propTypes = {
-  // example props for the demo
-  autoFocus: PropTypes.bool,
-
-  ...omit(SingleDatePickerShape, [
-    'date',
-    'onDateChange',
-    'focused',
-    'onFocusChange',
-  ]),
-};
 
 const defaultProps = {
   // example props for the demo
@@ -67,7 +53,7 @@ const defaultProps = {
   renderDayContents: null,
   enableOutsideDays: false,
   isDayBlocked: () => false,
-  isOutsideRange: day => !isInclusivelyAfterDay(day, moment()),
+  isOutsideRange: (day) => !isInclusivelyAfterDay(day, moment()),
   isDayHighlighted: () => {},
 
   // internationalization props
@@ -119,7 +105,6 @@ class SingleDatePickerWrapper extends React.Component {
   }
 }
 
-SingleDatePickerWrapper.propTypes = propTypes;
 SingleDatePickerWrapper.defaultProps = defaultProps;
 
 export default SingleDatePickerWrapper;

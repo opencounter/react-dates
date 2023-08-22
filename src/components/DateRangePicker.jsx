@@ -7,7 +7,6 @@ import isTouchDevice from 'is-touch-device';
 import OutsideClickHandler from 'react-outside-click-handler';
 import { darken } from 'color2k';
 
-import DateRangePickerShape from '../shapes/DateRangePickerShape';
 import { DateRangePickerPhrases } from '../defaultPhrases';
 
 import getResponsiveContainerStyles from '../utils/getResponsiveContainerStyles';
@@ -40,7 +39,6 @@ import {
 
 const propTypes = {
   ...withStylesPropTypes,
-  ...DateRangePickerShape,
 };
 
 const defaultProps = {

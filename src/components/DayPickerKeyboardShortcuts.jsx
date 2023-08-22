@@ -1,9 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { css, withStyles, withStylesPropTypes } from 'react-with-styles';
+import { css, withStyles } from 'react-with-styles';
 
 import { DayPickerKeyboardShortcutsPhrases } from '../defaultPhrases';
-import getPhrasePropTypes from '../utils/getPhrasePropTypes';
 
 import KeyboardShortcutRow from './KeyboardShortcutRow';
 import CloseButton from './CloseButton';
@@ -11,19 +9,6 @@ import CloseButton from './CloseButton';
 export const TOP_LEFT = 'top-left';
 export const TOP_RIGHT = 'top-right';
 export const BOTTOM_RIGHT = 'bottom-right';
-
-const propTypes = {
-  ...withStylesPropTypes,
-  block: PropTypes.bool,
-  // TODO: rename button location to be direction-agnostic
-  buttonLocation: PropTypes.oneOf([TOP_LEFT, TOP_RIGHT, BOTTOM_RIGHT]),
-  showKeyboardShortcutsPanel: PropTypes.bool,
-  openKeyboardShortcutsPanel: PropTypes.func,
-  closeKeyboardShortcutsPanel: PropTypes.func,
-  phrases: PropTypes.shape(getPhrasePropTypes(DayPickerKeyboardShortcutsPhrases)),
-  renderKeyboardShortcutsButton: PropTypes.func,
-  renderKeyboardShortcutsPanel: PropTypes.func,
-};
 
 const defaultProps = {
   block: false,
@@ -277,7 +262,6 @@ class DayPickerKeyboardShortcuts extends React.PureComponent {
   }
 }
 
-DayPickerKeyboardShortcuts.propTypes = propTypes;
 DayPickerKeyboardShortcuts.defaultProps = defaultProps;
 
 export default withStyles(({ reactDates: { color, font, zIndex } }) => ({

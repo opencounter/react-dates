@@ -7,7 +7,6 @@ import isTouchDevice from 'is-touch-device';
 import OutsideClickHandler from 'react-outside-click-handler';
 import { darken } from 'color2k';
 
-import SingleDatePickerShape from '../shapes/SingleDatePickerShape';
 import { SingleDatePickerPhrases } from '../defaultPhrases';
 
 import getResponsiveContainerStyles from '../utils/getResponsiveContainerStyles';
@@ -38,7 +37,6 @@ import {
 
 const propTypes = {
   ...withStylesPropTypes,
-  ...SingleDatePickerShape,
 };
 
 const defaultProps = {

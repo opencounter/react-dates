@@ -1,12 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { nonNegativeInteger, or } from 'airbnb-prop-types';
-import { css, withStyles, withStylesPropTypes } from 'react-with-styles';
+import { css, withStyles } from 'react-with-styles';
 import moment from 'moment';
 import raf from 'raf';
 
 import { CalendarDayPhrases } from '../defaultPhrases';
-import getPhrasePropTypes from '../utils/getPhrasePropTypes';
 import getCalendarDaySettings from '../utils/getCalendarDaySettings';
 
 import { DAY_SIZE } from '../constants';
@@ -24,55 +21,6 @@ function getStyles(stylesObj, isHovered) {
 
   return stylesObj;
 }
-
-const DayStyleShape = PropTypes.shape({
-  background: PropTypes.string,
-  border: or([PropTypes.string, PropTypes.number]),
-  color: PropTypes.string,
-
-  hover: PropTypes.shape({
-    background: PropTypes.string,
-    border: or([PropTypes.string, PropTypes.number]),
-    color: PropTypes.string,
-  }),
-});
-
-const propTypes = {
-  ...withStylesPropTypes,
-  daySize: nonNegativeInteger,
-  isOutsideDay: PropTypes.bool,
-  modifiers: PropTypes.instanceOf(Set),
-  isFocused: PropTypes.bool,
-  tabIndex: PropTypes.oneOf([0, -1]),
-  onDayClick: PropTypes.func,
-  onDayMouseEnter: PropTypes.func,
-  onDayMouseLeave: PropTypes.func,
-  renderDayContents: PropTypes.func,
-  ariaLabelFormat: PropTypes.string,
-
-  // style overrides
-  defaultStyles: DayStyleShape,
-  outsideStyles: DayStyleShape,
-  todayStyles: DayStyleShape,
-  firstDayOfWeekStyles: DayStyleShape,
-  lastDayOfWeekStyles: DayStyleShape,
-  highlightedCalendarStyles: DayStyleShape,
-  blockedMinNightsStyles: DayStyleShape,
-  blockedCalendarStyles: DayStyleShape,
-  blockedOutOfRangeStyles: DayStyleShape,
-  hoveredSpanStyles: DayStyleShape,
-  selectedSpanStyles: DayStyleShape,
-  lastInRangeStyles: DayStyleShape,
-  selectedStyles: DayStyleShape,
-  selectedStartStyles: DayStyleShape,
-  selectedEndStyles: DayStyleShape,
-  afterHoveredStartStyles: DayStyleShape,
-  hoveredStartFirstPossibleEndStyles: DayStyleShape,
-  hoveredStartBlockedMinNightsStyles: DayStyleShape,
-
-  // internationalization
-  phrases: PropTypes.shape(getPhrasePropTypes(CalendarDayPhrases)),
-};
 
 export const defaultStyles = {
   border: `1px solid ${color.core.borderLight}`,
@@ -355,7 +303,6 @@ class CustomizableCalendarDay extends React.PureComponent {
   }
 }
 
-CustomizableCalendarDay.propTypes = propTypes;
 CustomizableCalendarDay.defaultProps = defaultProps;
 
 export { CustomizableCalendarDay as PureCustomizableCalendarDay };

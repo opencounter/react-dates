@@ -1,12 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import moment from 'moment';
 import omit from 'lodash/omit';
 
 import DateRangePicker from '../src/components/DateRangePicker';
 
 import { DateRangePickerPhrases } from '../src/defaultPhrases';
-import DateRangePickerShape from '../src/shapes/DateRangePickerShape';
 import {
   START_DATE,
   END_DATE,
@@ -15,21 +13,6 @@ import {
   NAV_POSITION_TOP,
 } from '../src/constants';
 import isInclusivelyAfterDay from '../src/utils/isInclusivelyAfterDay';
-
-const propTypes = {
-  // example props for the demo
-  autoFocus: PropTypes.bool,
-  autoFocusEndDate: PropTypes.bool,
-  stateDateWrapper: PropTypes.func,
-
-  ...omit(DateRangePickerShape, [
-    'startDate',
-    'endDate',
-    'onDatesChange',
-    'focusedInput',
-    'onFocusChange',
-  ]),
-};
 
 const defaultProps = {
   // example props for the demo
@@ -155,7 +138,6 @@ class DateRangePickerWrapper extends React.Component {
   }
 }
 
-DateRangePickerWrapper.propTypes = propTypes;
 DateRangePickerWrapper.defaultProps = defaultProps;
 
 export default DateRangePickerWrapper;
